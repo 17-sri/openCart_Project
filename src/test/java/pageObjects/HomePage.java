@@ -9,9 +9,9 @@ public class HomePage extends BasePage {
 	public HomePage(WebDriver driver) {
 		super(driver);	
 	}
-	@FindBy(xpath="")
+	@FindBy(xpath="//span[normalize-space()='My Account']")
 	WebElement lnkMyAccount;
-	@FindBy(xpath="")
+	@FindBy(xpath="(//a[normalize-space()='Register'])[1]")
 	WebElement lnkRegister;
 		
 	
