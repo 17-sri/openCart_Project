@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- used to save logs, so that tester can share it to developer about defects, errors etc.... --> 
 
 <Configuration>
 

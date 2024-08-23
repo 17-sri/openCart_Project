@@ -9,7 +9,7 @@ public class AccountRegistrationPage extends BasePage {
 	public AccountRegistrationPage(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	@FindBy(xpath="//input[@id='input-firstname']")
 	WebElement txtFirstName;
 	@FindBy(xpath="//input[@id='input-lastname']")
@@ -28,12 +28,12 @@ public class AccountRegistrationPage extends BasePage {
 	WebElement btnContinue;
 	@FindBy(xpath="//h1[normalize-space()='Your Account Has Been Created!']")
 	WebElement msgConfirmation;
-	
-	public void setFirstName(String fname) {
-		txtFirstName.sendKeys(fname);
+
+	public void setFirstName(String fName) {
+		txtFirstName.sendKeys(fName);
 	}
-	public void setLasrName(String lname) {
-		txtLastName.sendKeys(lname);
+	public void setLasrName(String lName) {
+		txtLastName.sendKeys(lName);
 	}
 	public void setEmail(String email) {
 		txtEmail.sendKeys(email);
@@ -53,10 +53,10 @@ public class AccountRegistrationPage extends BasePage {
 	public void clickContinue() {
 		//solution 1
 		btnContinue.submit();
-		
+
 		//solution 2
 		//btnContinue.click();
-		
+
 		//solution 3
 		//Actions action = new Actions(driver);
 		//action.moveToElement(btnContinue).click().perform();
@@ -68,6 +68,6 @@ public class AccountRegistrationPage extends BasePage {
 			return(e.getMessage());
 		}
 	}
-	
+
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" thread-count="5" parallel="tests"><!--Parallel Execution -->
+<suite name="parallelBrowserTestingSuite" thread-count="5" parallel="tests"><!--Parallel Execution -->
 	<!--thread-count="5" because , it can allocate 5 memory allocations -->
 	<test name="ChromeTest"><!--Testing in chrome browser -->
 		<parameter name="os" value="Windows" />
@@ -17,6 +17,4 @@
 			<class name="testCases.TC001_AccountRegistrationTest" />
 		</classes>
 	</test>
-
 </suite> <!--Suite -->
-
