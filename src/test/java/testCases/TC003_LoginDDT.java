@@ -10,7 +10,7 @@ import testBase.BaseClass;
 import utilities.DataProviders;
 
 public class TC003_LoginDDT extends BaseClass {
-	@Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class) // because DataProvider ="LoginData" is located in different package and different class, that's why we should specify name of the class "DataProvider.class"
+	@Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class, groups = "Datadriven") // because DataProvider ="LoginData" is located in different package and different class, that's why we should specify name of the class "DataProvider.class"
 	public void verify_loginDDT(String email, String pwd, String exp) {
 		logger.info("...starting TC003_LoginDDT... ");
 		try {
@@ -58,6 +58,3 @@ public class TC003_LoginDDT extends BaseClass {
 		logger.info("...finished TC003_LoginDDT...");
 	}
 }
-
-
-
