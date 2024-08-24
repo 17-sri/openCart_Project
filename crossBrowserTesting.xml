@@ -3,6 +3,11 @@
 <suite name="crossBrowserTestingSuite" thread-count="5" >
     <!--We can test using many browsers one after another -->
     <!--Serial Execution -->
+	<listeners>
+		<listener class-name="utilities.ExtentReportManager">
+		</listener>
+	</listeners>
+	
 	<test  name="ChromeTest"><!--Testing in Chrome browser -->
 		<parameter name="os" value="Windows" />
 		<parameter name="browser" value="chrome" />	

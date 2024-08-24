@@ -95,5 +95,10 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>SeleniumProjects</groupId>
+			<artifactId>SeleniumProjects</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

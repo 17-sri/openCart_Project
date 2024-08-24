@@ -2,6 +2,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="parallelBrowserTestingSuite" thread-count="5" parallel="tests"><!--Parallel Execution -->
 	<!--thread-count="5" because , it can allocate 5 memory allocations -->
+	<listeners>
+		<listener class-name="utilities.ExtentReportManager">
+		</listener>
+	</listeners>
 	<test name="ChromeTest"><!--Testing in chrome browser -->
 		<parameter name="os" value="Windows" />
 		<parameter name="browser" value="chrome" />
