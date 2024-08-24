@@ -9,30 +9,28 @@ import pageObjects.MyAccountPage;
 import testBase.BaseClass;
 
 public class TC002_LoginTest extends BaseClass {
-	@Test
+	@Test(groups = {"Sanity", "Master"})
 	public void verify_login() {
 
 		logger.info("...starting TC002_LoginTest... ");
 		try {
 			//HomePage
-			HomePage hp = new HomePage(driver);
-			hp.clickMyAccount();
-			hp.clickLogin();
+			HomePage homePage = new HomePage(driver);
+			homePage.clickMyAccount();
+			homePage.clickLogin();
 			//LoginPage
-			LoginPage lp = new LoginPage(driver);
-			lp.setEmail(properties.getProperty("email"));
-			lp.setPassword(properties.getProperty("password"));
-			lp.clickLogin();
+			LoginPage loginPage = new LoginPage(driver);
+			loginPage.setEmail(properties.getProperty("email"));
+			loginPage.setPassword(properties.getProperty("password"));
+			loginPage.clickLogin();
 			//MyAccountPage
-			MyAccountPage macc = new MyAccountPage(driver);
-			boolean targetPage = macc.isMyAccountPageExists();
+			MyAccountPage myAcc = new MyAccountPage(driver);
+			boolean targetPage = myAcc.isMyAccountPageExists();
 			Assert.assertTrue(targetPage);//Assert.assertEquals(targetPage, true, "Login Failed");
 		}
 		catch(Exception e) {
 			Assert.fail();
 		}
 		logger.info("...finished TC002_LoginTest... ");
-
 	}
-
 }
