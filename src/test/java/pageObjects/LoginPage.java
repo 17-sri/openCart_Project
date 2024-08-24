@@ -23,8 +23,5 @@ public class LoginPage extends  BasePage{
 	}
 	public void clickLogin() {
 		btnLogin.click();
-	}
-	
+	}	
 }
-
-
