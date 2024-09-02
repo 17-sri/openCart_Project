@@ -59,7 +59,7 @@ public class BaseClass {
 	public void tearDown() {
 		driver.quit();
 	}
-
+	
 	public String randomString() {
 		String generatedString = RandomStringUtils.randomAlphabetic(5);
 		return generatedString;

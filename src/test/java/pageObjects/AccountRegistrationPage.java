@@ -32,7 +32,7 @@ public class AccountRegistrationPage extends BasePage {
 	public void setFirstName(String fName) {
 		txtFirstName.sendKeys(fName);
 	}
-	public void setLasrName(String lName) {
+	public void setLastName(String lName) {
 		txtLastName.sendKeys(lName);
 	}
 	public void setEmail(String email) {
