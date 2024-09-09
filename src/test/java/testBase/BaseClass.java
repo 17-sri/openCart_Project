@@ -25,7 +25,7 @@ public class BaseClass {
 	public Logger logger; // log4j2
 	public Properties properties;
 
-	@BeforeClass(groups = {"Sanity", "Regression", "Master", "Datadriven"})
+	@BeforeClass(alwaysRun =true,groups = {"Sanity", "Regression", "Master", "Datadriven"})
 	@Parameters({ "os", "browser" })
 	public void setUp(String os, String br) throws IOException {
 		//Loading config.properties file
@@ -55,7 +55,7 @@ public class BaseClass {
 		driver.get(properties.getProperty("appURL"));// reading URL from properties file
 	}
 
-	@AfterClass(groups = {"Sanity", "Regression", "Master"})
+	@AfterClass(alwaysRun = true, groups = {"Sanity", "Regression", "Master"})
 	public void tearDown() {
 		driver.quit();
 	}
@@ -81,8 +81,6 @@ public class BaseClass {
 		String targetFilePath = System.getProperty("user.dir")+"\\screenshot\\"+tName+"_"+timeStamp+".png";
 		File targetFile = new File(targetFilePath);
 		sourceFile.renameTo(targetFile);
-		return targetFilePath;
-		
+		return targetFilePath;	
 	}
-
 }

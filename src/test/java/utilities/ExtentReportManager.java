@@ -34,9 +34,9 @@ public class ExtentReportManager implements ITestListener {
 		extent = new ExtentReports();
 		extent.attachReporter(sparkReporter);
 		extent.setSystemInfo("Application", "openCart");
-		extent.setSystemInfo("Module", "Admin");
+		extent.setSystemInfo("Module", "Grouping_Test");
 		extent.setSystemInfo("Sub Module", "Customer");
-		extent.setSystemInfo("User Name", System.getProperty("user.name"));
+		extent.setSystemInfo("User Name", "SRIKANTH V");
 		extent.setSystemInfo("Environment", "QA");
 		String os = testContext.getCurrentXmlTest().getParameter("os");
 		extent.setSystemInfo("Operating System", os);
@@ -50,12 +50,12 @@ public class ExtentReportManager implements ITestListener {
 	public void onTestSuccess(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
 		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.PASS, result.getName()+"got successfully executed");
+		test.log(Status.PASS, result.getTestClass()+"  got successfully executed");
 	}
 	public void onTestFailure(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
 		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.FAIL, result.getName()+"got failed");
+		test.log(Status.FAIL, result.getName()+"  seriously ... failed");
 		test.log(Status.INFO, result.getThrowable().getMessage());
 		try {
 			String imgPath = new BaseClass().captureScreen(result.getName());
@@ -68,7 +68,7 @@ public class ExtentReportManager implements ITestListener {
 	public void onTestSkipped(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
 		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.SKIP, result.getName()+"got skipped");
+		test.log(Status.SKIP, result.getName()+"   Damn !!! skipped");
 		test.log(Status.INFO, result.getThrowable().getMessage());
 	}
 	public void onFinish(ITestContext testContext) {
@@ -81,26 +81,5 @@ public class ExtentReportManager implements ITestListener {
 		catch(IOException e) {
 			e.printStackTrace();
 		}
-		/*try {
-			@SuppressWarnings("deprecation")
-			URL url = new URL("file:///"+System.getProperty("user.dir")+"\\reports\\"+repName);
-			//create the email message
-			ImageHtmlEmail email = new ImageHtmlEmail();
-			email.setDataSourceResolver(new DataSourceUrlResolver(url));)
-			email.setHostName("smpt.googlemail.com");
-			email.setSmtpPort(465);
-			email.setAuthenticator(new DefaultAuthenticator("srikanthv1709@gmail.com", "password"));
-			email.setSSLOnConnect(true);
-			email.setFrom("srikanthv1709@gmail.com");// sender
-			email.setSubject("Test Results");
-			email.setMsg("please find attachment report...");
-			email.addTo("srikanthv1709@gmail.com");
-			email.attach(url,"extent report","please check report");
-			email.send();// sending the email	
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		*/
 	}
 }
