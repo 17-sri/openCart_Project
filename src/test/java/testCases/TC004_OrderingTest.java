@@ -1,3 +1,4 @@
+
 package testCases;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -39,31 +40,3 @@ public class TC004_OrderingTest extends BaseClass{
 	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,7 +19,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import testBase.BaseClass;
 
-public class ExtentReportManager implements ITestListener {
+public class Listeners implements ITestListener {
 	public ExtentSparkReporter sparkReporter;
 	public ExtentReports extent;
 	public ExtentTest test;
@@ -27,7 +27,7 @@ public class ExtentReportManager implements ITestListener {
 	public void onStart(ITestContext testContext) {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		repName = "Test-Report-"+timeStamp+".html";
-		sparkReporter = new ExtentSparkReporter(".\\report\\"+repName);
+		sparkReporter = new ExtentSparkReporter(".\\reports\\"+repName);
 		sparkReporter.config().setDocumentTitle("openCart Automation report");
 		sparkReporter.config().setReportName("openCart Functional Testing");
 		sparkReporter.config().setTheme(Theme.DARK);
@@ -58,7 +58,7 @@ public class ExtentReportManager implements ITestListener {
 		test.log(Status.FAIL, result.getName()+"  seriously ... failed");
 		test.log(Status.INFO, result.getThrowable().getMessage());
 		try {
-			String imgPath = new BaseClass().captureScreen(result.getName());
+			String imgPath = new BaseClass().getScreenshot(result.getName(), BaseClass.driver);
 			test.addScreenCaptureFromPath(imgPath);
 		}
 		catch(Exception e1) {
@@ -73,7 +73,7 @@ public class ExtentReportManager implements ITestListener {
 	}
 	public void onFinish(ITestContext testContext) {
 		extent.flush();
-		String pathOfExtentReport = System.getProperty("user.dir")+"\\report\\"+repName;
+		String pathOfExtentReport = System.getProperty("user.dir")+"\\reports\\"+repName;
 		File extentReport =  new File(pathOfExtentReport);
 		try {
 			Desktop.getDesktop().browse(extentReport.toURI());

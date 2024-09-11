@@ -20,7 +20,7 @@
 		<parameter name="os" value="Windows" />
 		<parameter name="browser" value="edge" />	
 		<classes>
-			<class name="testCases.TC001_AccountRegistrationTest" />
+			<class name="testCases.TC004_OrderingTest" />
 		</classes>
 	</test> 
 </suite> <!--Suite -->

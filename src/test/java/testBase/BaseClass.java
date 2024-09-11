@@ -1,3 +1,4 @@
+
 package testBase;
 
 import java.io.File;
@@ -8,6 +9,7 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager; //log4j2
 import org.apache.logging.log4j.Logger; //log4j2
@@ -75,12 +77,12 @@ public class BaseClass {
 		String generatedNumber = RandomStringUtils.randomNumeric(3);
 		return (generatedString + "#" + generatedNumber);
 	}
-	public String captureScreen(String tName) throws IOException, Exception {
-		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		File sourceFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String targetFilePath = System.getProperty("user.dir")+"\\screenshot\\"+tName+"_"+timeStamp+".png";
-		File targetFile = new File(targetFilePath);
-		sourceFile.renameTo(targetFile);
-		return targetFilePath;	
+	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File file = new File(System.getProperty("user.dir") + "//screenshots//" + testCaseName + "_" +timeStamp+ ".png");
+		FileUtils.copyFile(source, file);
+		return System.getProperty("user.dir") + "//screenshots//" + testCaseName+".png";
 	}
 }

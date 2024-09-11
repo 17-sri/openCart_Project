@@ -58,6 +58,3 @@ public class TC003_LoginDDT extends BaseClass {
 		logger.info("...finished TC003_LoginDDT...");
 	}
 }
-
-
-
