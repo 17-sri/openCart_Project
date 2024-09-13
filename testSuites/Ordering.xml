@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Master Suite">
 	<listeners>
-		<listener class-name="utilities.ExtentReportManager">
+		<listener class-name="utilities.Listeners">
 		</listener>
 	</listeners>
 	<test thread-count="5" name="Test">
 		<parameter name="os" value="Windows" />
-		<parameter name="browser" value="edge" />
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="testCases.TC004_OrderingTest"/>
 		</classes>

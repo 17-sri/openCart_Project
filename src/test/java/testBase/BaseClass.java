@@ -81,8 +81,9 @@ public class BaseClass {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-		File file = new File(System.getProperty("user.dir") + "//screenshots//" + testCaseName + "_" +timeStamp+ ".png");
+		String destination = System.getProperty("user.dir") + "//screenshots//" + testCaseName + "_" +timeStamp+ ".png";
+		File file = new File(destination);
 		FileUtils.copyFile(source, file);
-		return System.getProperty("user.dir") + "//screenshots//" + testCaseName+".png";
+		return destination;
 	}
 }

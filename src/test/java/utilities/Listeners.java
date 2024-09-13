@@ -36,7 +36,7 @@ public class Listeners implements ITestListener {
 		extent.setSystemInfo("Application", "openCart");
 		extent.setSystemInfo("Module", "Grouping_Test");
 		extent.setSystemInfo("Sub Module", "Customer");
-		extent.setSystemInfo("User Name", "SRIKANTH V");
+		extent.setSystemInfo("Test Engineer", "SRIKANTH V");
 		extent.setSystemInfo("Environment", "QA");
 		String os = testContext.getCurrentXmlTest().getParameter("os");
 		extent.setSystemInfo("Operating System", os);
@@ -44,7 +44,7 @@ public class Listeners implements ITestListener {
 		extent.setSystemInfo("Browser", browser);
 		List<String> includedGroups = testContext.getCurrentXmlTest().getIncludedGroups();
 		if(!includedGroups.isEmpty()) {
-			extent.setSystemInfo("Groups",includedGroups.toString());
+			extent.setSystemInfo("Groups  ",includedGroups.toString());
 		}
 	}
 	public void onTestSuccess(ITestResult result) {

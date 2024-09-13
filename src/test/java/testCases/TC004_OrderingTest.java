@@ -35,8 +35,5 @@ public class TC004_OrderingTest extends BaseClass{
 		order.clkCheckout().click();
 		String cnfrmMsg = order.getConfirmationMsg();
 		Assert.assertEquals(cnfrmMsg, "Products marked with *** are not available in the desired quantity or not in stock!"+"\n"+"×");
-
 	}
-	
-
 }
