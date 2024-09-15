@@ -1,12 +1,8 @@
 package pageObjects;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Ordering extends BasePage{
 
@@ -27,8 +23,10 @@ public class Ordering extends BasePage{
 	WebElement clkAddCart;
 	@FindBy(css = "[class*='alert-dismissible']")
 	WebElement successMsg;
-	@FindBy(xpath = "//a[text()='shopping cart']")
+	@FindBy(xpath = "//button[@class='btn btn-inverse btn-block btn-lg dropdown-toggle']")
 	WebElement clkCart;
+	@FindBy(xpath = "//strong[text()='View Cart']")
+	WebElement viewCart;
 	@FindBy(xpath = "//a[text()='Checkout']")
 	WebElement btnCheckout;
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
@@ -53,21 +51,18 @@ public class Ordering extends BasePage{
 		clkAddCart.click();
 	}
 	public String getSuccesMsg() {
-		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOf(successMsg));
-		try {
-			return(successMsg.getText());
-		}catch(Exception e) {
-			return(e.getMessage());
-		}
+		waitForWebElementToAppear(successMsg);
+		return successMsg.getText();
 	}
 	public void btnCart() {
 		clkCart.click();
+		viewCart.click();
 	}
 	public WebElement clkCheckout() {
 		return btnCheckout;
 	}
 	public String getConfirmationMsg() {
+		waitForWebElementToAppear(confirmMessage);
 		try {
 			return(confirmMessage.getText());
 		}catch(Exception e) {

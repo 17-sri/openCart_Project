@@ -50,12 +50,12 @@ public class Listeners implements ITestListener {
 	public void onTestSuccess(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
 		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.PASS, result.getTestClass()+"  got successfully executed");
+		test.log(Status.PASS, result.getTestClass()+"  >>>>  got successfully executed");
 	}
 	public void onTestFailure(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
 		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.FAIL, result.getName()+"  seriously ... failed");
+		test.log(Status.FAIL, result.getName()+"  >>>>  seriously ... failed");
 		test.log(Status.INFO, result.getThrowable().getMessage());
 		try {
 			String imgPath = new BaseClass().getScreenshot(result.getName(), BaseClass.driver);
@@ -68,7 +68,7 @@ public class Listeners implements ITestListener {
 	public void onTestSkipped(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
 		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.SKIP, result.getName()+"   Damn !!! skipped");
+		test.log(Status.SKIP, result.getName()+"  >>>>   Damn !!! skipped");
 		test.log(Status.INFO, result.getThrowable().getMessage());
 	}
 	public void onFinish(ITestContext testContext) {

@@ -30,6 +30,8 @@ public class TC004_OrderingTest extends BaseClass{
 		order.btnAddCart();
 		String cartConfirmMsg = order.getSuccesMsg();
 		Assert.assertEquals(cartConfirmMsg, "Success: You have added "+properties.getProperty("searchiphone")+" to your shopping cart!"+"\n"+"×");
+		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		//wait.until(ExpectedConditions.visibilityOf(null));
 		order.btnCart();
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", order.clkCheckout());		
 		order.clkCheckout().click();
