@@ -14,5 +14,5 @@
 			<class name = "testCases.TC003_LoginDDT" />
 			<class name = "testCases.TC004_OrderingTest"/>
 		</classes>
-	</test> <!--Test -->
-</suite> <!--Suite -->
+	</test> 
+</suite> 
